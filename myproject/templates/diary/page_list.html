@@ -1,0 +1,15 @@
+{% extends "base/diary_base.html" %}
+{% block body %}
+
+<ul>
+    {% for page in page_list %}
+    <!-- "for n in list" page_list = DBから取得したすべての日記とview.pyで設定 -->
+        <li>{{ page.page_date }}:
+             <a href="{% url 'diary:page_detail' page.id %}">{{ page.title }}</a>
+        </li>
+    {% empty %} <!-- if not page_list -->
+        <div>日記のページが１つもありません。</div>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base/diary_base.html" %}
+{% block body %}
+
+<h2>日記を書く</h2>
+<form method="POST" enctype="multipart/form-data">
+    <!-- リクエストをポストに変換（データ登録はPOST） -->
+    {% csrf_token %} <!-- CSRFの検証を自動で行う -->
+    {{ form.as_p }} <!-- _.as_p = 定義した入力フィールドを、簡単にHTMLに変換して表示 -->
+    <button type="submit">保存</button>
+    <!-- submit = 送信 他にresetなどがある -->
+</form>
+
+{% endblock %}
